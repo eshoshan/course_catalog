@@ -1,0 +1,23 @@
+<h1><center>Courses</center></h1>
+
+<table style = "width:100%" id="table1">
+  <thead>
+    <tr>
+      <th>ID  </th>
+      <th>Code</th>
+      <th>Name</th>
+      <th colspan="10"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @courses.each do |course| %>
+      <tr>
+        <td><%= course.course_id %></td>
+        <td><%= course.code %></td>
+        <td><%= course.name%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>

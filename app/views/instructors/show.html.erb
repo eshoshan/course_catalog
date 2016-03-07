@@ -1,0 +1,23 @@
+<h1><center>Instructors</center></h1>
+
+<table style = "width:100%" id="table1">
+  <thead>
+    <tr>
+      <th>Last</th>
+      <th>First</th>
+      <th>Email</th>
+      <th colspan="10"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @instructors.each do |instructor| %>
+      <tr>
+        <td><%= instructor.last%></td>
+        <td><%= instructor.first %></td>
+        <td><%= instructor.email%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>

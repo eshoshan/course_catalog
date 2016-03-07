@@ -1,0 +1,14 @@
+
+<div class="center jumbotron">
+  <div class = "container">
+    <h1><center>Course Catalog</center></h1>
+    <% if !logged_in? %>
+      <center><%= link_to "Sign up now!", new_user_path, class: "btn btn-lg btn-primary" %></center>
+      <p> </p>
+      <center><%= link_to "Log in!", login_path, class: "btn btn-lg btn-primary" %></center>
+    <%end%>
+  </div>
+</div>
+<% if !logged_in? %>
+  <center><%link_to "Profile", current_user, class: "btn btn-primary btn-block" %></center>
+<%end%>
