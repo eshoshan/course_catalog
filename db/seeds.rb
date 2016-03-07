@@ -9,8 +9,6 @@
 require 'json'
 require 'open-uri'
 
-User.delete_all
-
 open("http://www.cs.brandeis.edu//~prakhar/dataset.json") do |f|
 	@data = f.read
 end
