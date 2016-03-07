@@ -46,3 +46,4 @@ gem 'bcrypt', '~> 3.1.10'
 
 gem 'rails_12factor', group: :production
 gem 'sqlite3', group: :development
+gem 'bootstrap-sass'
