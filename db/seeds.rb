@@ -9,10 +9,6 @@
 require 'json'
 require 'open-uri'
 
-Course.delete_all
-Instructor.delete_all
-Subject.delete_all
-Section.delete_all
 User.delete_all
 
 open("http://www.cs.brandeis.edu//~prakhar/dataset.json") do |f|
