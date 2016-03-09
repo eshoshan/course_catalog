@@ -31,8 +31,6 @@ line.each{ |x|
         Course.create(code: y['code'], subject_name: y['subjects'].to_s, name: y['name'], course_id: y['id'])
       elsif value == "subject"
         Subject.create(name: y['name'])
-      elsif value == "section"
-        Section.create(course_id: y['course'], instructor_id: y['instructors'].to_s)
       end
 		end
 	}
