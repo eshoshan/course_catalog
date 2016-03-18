@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   get 'courses' => 'courses#show'
   get 'instructors' => 'instructors#show'
 
+  get 'search' => 'search#index'
+  post 'search' => 'search#indexed'
+
   resources :users
 
 

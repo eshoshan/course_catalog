@@ -4,10 +4,10 @@ one:
   code: 
   subject_name: 
   name: 
-  id: 1
+  course_id: 1
 
 two:
   code: 
   subject_name: 
   name: 
-  id: 1
+  course_id: 1

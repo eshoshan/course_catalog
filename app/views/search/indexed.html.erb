@@ -1,0 +1,35 @@
+
+<u1>
+  <% if @search.nil? %>
+  <div class = "row">
+    <div class = "col-md-5">
+      <b>Name</b>
+    </div>
+    <div class = "col-md-5">
+      <b>Subject</b>
+    </div>
+  </div>
+  <% else %>
+  <div class = "row">
+    <div class = "col-md-5">
+      <b>Course Name</b>
+    </div>
+    <div class = "col-md-5">
+      <b>Subjects</b>
+    </div>
+    <% for course in @search %>
+      <div class = "row">
+        <div class="col-md-5">
+          <%= course.name %>
+        </div>
+        <div class="col-md-5">
+          <% final = [] %>
+          <% temp = Subjectcourse.where(course_code: course.code)%>
+          <% temp.each { |t| final.append(t.subject_name)} %>
+          <%= final.to_s %>
+        </div>
+        <br>
+      </div>
+    <% end %>
+  <%end%>
+</u1>

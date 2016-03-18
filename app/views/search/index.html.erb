@@ -1,0 +1,18 @@
+<%= form_for(@search, url: {:controller => "search", :action => "indexed"}) do |f|%>
+
+<div class = row>
+  <div class="col-md-5">
+      <%= f.label "Course" %>
+      <%= f.text_field :classname %>
+  </div>
+
+  <div class="col-md-5">
+      <%= f.label "Subject" %>
+      <%= f.select(:subjectselect, options_for_select(@subjects)) %>
+  </div><br>
+  <div class="col-md-2">
+    <%= f.submit "Search"%>
+  </div>
+</div>
+
+<% end %>

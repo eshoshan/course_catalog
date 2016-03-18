@@ -4,10 +4,10 @@ one:
   first: 
   last: 
   email: 
-  id: 1
+  instructor_id: 1
 
 two:
   first: 
   last: 
   email: 
-  id: 1
+  instructor_id: 1

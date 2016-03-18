@@ -12,7 +12,8 @@ require 'open-uri'
 Instructor.delete_all
 Course.delete_all
 Subject.delete_all
-Section.delete_all
+Enrollment.delete_all
+Subjectcourse.delete_all
 
 open("http://www.cs.brandeis.edu//~prakhar/dataset.json") do |f|
 	@data = f.read
@@ -27,10 +28,20 @@ line.each{ |x|
 		if key == "type"
 			if value == "instructor"
         Instructor.create(first: y['first'], last: y['last'], email: y['email'], instructor_id: y['id'])
+			elsif value == "subject"
+        Subject.create(name: y['name'], subject_id: y['id'])
+
 			elsif value == "course"
         Course.create(code: y['code'], subject_name: y['subjects'].to_s, name: y['name'], course_id: y['id'])
-      elsif value == "subject"
-        Subject.create(name: y['name'])
+				a = y['subjects']
+				a.each{ |b|
+					x = Subject.select(:name).where(subject_id: b['id'])
+					x.each { |y2|
+						if !y2.name.nil?
+							Subjectcourse.create(subject_name: y2.name, course_code: y['code'])
+						end
+					}
+				}
       end
 		end
 	}
