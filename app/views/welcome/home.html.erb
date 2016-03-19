@@ -13,10 +13,10 @@
   <center><%link_to "Profile", current_user, class: "btn btn-primary btn-block" %></center>
 <%end%>
 
-<h1><center>Courses Enrolled for <%=current_user.name%></center></h1>
 
 
 <%if logged_in?%>
+<h1><center>Courses Enrolled for <%=current_user.name%></center></h1>
 <% e = Enrollment.where(user_email: current_user.email) %>
 <% if e.empty? %>
   <center>You are not enrolled in any classes!</center>
