@@ -16,7 +16,7 @@
 <h1><center>Courses Enrolled for <%=current_user.name%></center></h1>
 
 
-<%if logged_in%>
+<%if logged_in?%>
 <% e = Enrollment.where(user_email: current_user.email) %>
 <% if e.empty? %>
   <center>You are not enrolled in any classes!</center>
