@@ -11,15 +11,21 @@
   </div>
   <% else %>
   <div class = "row">
+    <div class="col-md-2"
+      <b>Course Code</b>
+    </div>
     <div class = "col-md-5">
       <b>Course Name</b>
     </div>
     <div class = "col-md-5">
-      <b>Subjects</b>
+      <b>Subjects</b><br>
     </div>
     <% for course in @search %>
       <div class = "row">
-        <div class="col-md-5">
+        <div class="col-md-2">
+          <%= course.code %>
+        </div>
+        <div class="col-md-3">
           <%= course.name %>
         </div>
         <div class="col-md-5">
@@ -27,6 +33,10 @@
           <% temp = Subjectcourse.where(course_code: course.code)%>
           <% temp.each { |t| final.append(t.subject_name)} %>
           <%= final.to_s %>
+        </div>
+        <div class="col-md-2">
+          <td><%= link_to 'Enroll', {:controller => "enrollments", :action => "new", :code => course.code}, class: "btn btn-primary btn-sm" %></td>
+
         </div>
         <br>
       </div>

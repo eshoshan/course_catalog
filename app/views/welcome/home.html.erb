@@ -12,3 +12,32 @@
 <% if !logged_in? %>
   <center><%link_to "Profile", current_user, class: "btn btn-primary btn-block" %></center>
 <%end%>
+
+<h1><center>Courses Enrolled for <%=current_user.name%></center></h1>
+
+<% e = Enrollment.where(user_email: current_user.email) %>
+<% if e.empty? %>
+  <center>You are not enrolled in any classes!</center>
+<%else%>
+<% for ele in e %>
+  <% a = Course.where(code: ele.course_code) %>
+  <div class = "row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-4">
+      <%= ele.course_code %>
+    </div>
+    <div class="col-md-4">
+      <% final = [] %>
+      <% temp = Course.where(code: ele.course_code)%>
+      <% temp.each { |t| final.append(t.name)} %>
+      <%= final.to_s %>
+    </div>
+
+    <div class="col-md-2">
+    </div>
+    <br>
+  </div>
+<% end %>
+
+<%end%>
