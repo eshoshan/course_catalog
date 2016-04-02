@@ -19,8 +19,10 @@ Rails.application.routes.draw do
   get 'courses' => 'courses#show'
   get 'instructors' => 'instructors#show'
 
-  get 'search' => 'search#index'
-  post 'search' => 'search#indexed'
+  get 'search' => 'search#search'
+  get 'search/dosearch' => 'search#dosearch'
+  get 'search/results' => 'search'
+
 
   resources :users
 

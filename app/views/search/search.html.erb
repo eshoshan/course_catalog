@@ -1,0 +1,29 @@
+<%= form_tag(search_dosearch_path, method: "get", remote: true, role: "form", class: "form", id: "form1") do %>
+
+<div class = row>
+  <div class="col-md-5">
+    <div class="form-group">
+        <label class="control-label">Course:</label>
+        <%= text_field_tag 'classname', '', placeholder:"Enter Course name", class: "form-control", :onkeyup => ("$('#form1').submit()")%>
+    </div>
+  </div>
+
+  <div class="col-md-5">
+    <div class="form-group">
+        <label class="control-label">Subject:</label>
+        <%= select_tag(:subjectselect,
+            options_for_select(
+              @subjects), class: "form-control", :onchange => ("$('#form1').submit();")) %>
+    </div>
+  </div><br>
+  <div class="col-md-2">
+    <!-- <%= submit_tag("Search")%> -->
+  </div>
+</div>
+
+<% end %>
+
+<div class="row col-md-offset-1 col-md-11">
+  <div id="search_results">
+  </div>
+</div>
